@@ -1,0 +1,73 @@
+## bundle exec jekyll serve --config _config.yml,_config-dev.yml
+
+# Configurations
+title:            Asellus Wiki
+longtitle:        A community maintained knowledge base for Asellus aquaticus
+author:           The Asellus Consortium
+email:            admin@asellus.org
+description: >
+  Build Jekyll site with the GitBook style.
+
+version:          1.0
+gitbook_version:  3.2.3
+
+url:              ''
+baseurl:          'https://www.asellus.org/wiki'
+
+toc:
+  enabled: true
+  h_min: 1
+  h_max: 3
+
+# Search settings
+tipue_search:
+  include:
+    pages: true
+  exclude:
+    files: [index.md, search.html]
+
+# markdown render engine.
+markdown:         kramdown
+kramdown:
+  auto_ids:               true
+  input:                  GFM
+  math_engine:            mathjax
+  smart_quotes:           lsquo,rsquo,ldquo,rdquo
+  toc_levels:             1..6
+  syntax_highlighter:     rouge
+  syntax_highlighter_opts:
+    guess_lang:           true
+
+markdown_ext:     markdown,mkdown,mkdn,mkd,md
+
+# Permalinks
+permalink:        /:categories/:year-:month-:day-:title:output_ext
+
+include:
+  - _pages
+
+exclude:
+  - _site
+  - _drafts
+
+destination:      ./_site
+incremental:      false
+regenerate:       true
+
+plugins:
+  - jekyll-feed
+  - jemoji
+
+# collections:
+  # - name: 'blog'
+    # label: 'Blog'
+    # folder: '_posts/'
+    # create: true
+    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    # editor:
+      # preview: false
+    # fields:
+      # - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post' }
+      # - { label: 'Title', name: 'title', widget: 'string' }
+      # - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      # - { label: 'Body', name: 'body', widget: 'markdown' }
